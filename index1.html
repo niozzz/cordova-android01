@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>My Blog</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    <style>
+      .text {
+  display: block;
+  width: 100%;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+    </style>
+
+  </head>
+  <body style="background-color: burlywood;">
+    <div class="container mt-3">
+      <div id="content-home" class="mb-5">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="inputKey" placeholder="Cari Kategori" aria-label="Cari Kategori" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-dark" onclick="myFunction()" type="button">Cari</button>
+          </div>
+        </div>
+        <div class="mypanel mb-5"></div>
+      </div>
+
+      
+    </div>
+
+    <script>
+    function myFunction(){
+
+        var input = document.getElementById('inputKey')
+        // console.log(input.value)
+        var link = 'http://localhost/web-simpel11/cari.php?key=' + input.value;
+        $.getJSON(link, function(data) {
+            // var data1 = JSON.parse(data)
+            var text = '';
+            $.each(data, function(index, element) {		
+                 text += `<div class="card mb-3" style="width: 100%; ">
+                <img class="card-img-top" style="margin: 0 auto;
+                overflow: hidden;
+                position: relative;
+                height: 200px; object-fit: cover; " src="http://localhost/web-simpel11/images/`; text+= element.gambar +`"  alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title text-capitalize">`; text+= element.judul +`</h5>
+                  <p class="card-text text">`; text+= element.deskripsi +`</p>
+                  <a href="javascript:void(0)" onclick="tampil(`; text+= element.id + `)" class="btn btn-primary">Baca selengkapnya</a>
+                </div>
+              </div>`
+                
+            });
+    
+    
+            $(".mypanel").html(text);
+        });
+    }
+
+    function tampil(id){
+
+var link = 'http://localhost/web-simpel11/detail.php?key=' + id;
+$.getJSON(link, function(data) {
+    // var data1 = JSON.parse(data)
+    var text = '';
+    $.each(data, function(index, element) {		
+        text += `<h1 class="text-center my-2 py-3 border rounded" style="background-color: #316879; color: white;">My Blog</h1><h2 class="text-capitalize">`; text+= element.judul +`</h2>
+<img src="http://localhost/web-simpel11/images/`; text+= element.gambar +`" alt="" width="100%">
+<p>Kategori : `; text+= element.kategori +`</p>
+<p>`; text+= element.deskripsi +`</p>`;
+        
+    });
+
+
+    $("#content-home").html(text);
+});
+}
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

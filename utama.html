@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    <style>
+        .centered {
+            position: fixed;
+            
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  /* border: 3px solid #73AD21; */
+  z-index: 99;
+}
+.kotak {
+    padding: 10px 20px;
+}
+
+a:active, a:hover, a:link, a:visited{
+    text-decoration: none;
+}
+
+.link-button {
+    text-decoration: none;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body onload="loadPertama()" style="background-color: #ced7d8; text-align: justify;">
+    <div class="tombol-nav centered">
+        <div class="row text-center">
+            <div class="col-6 border kotak" style="background-color: #7fe7dc;">
+                <a href="javascript:void(0)" class="link-button" onclick="allPost();">Postingan</a>
+            </div>
+            <div class="col-6 border kotak" style="background-color: #f47a60;">
+                <a href="javascript:void(0)" class="link-button" onclick="allKategori();">Kategori</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="konten" >
+
+    </div>
+
+    <script>
+        function loadPertama()
+        {
+            $.get( "http://localhost/web-simpel11/index.html", function( data ) {
+                $( "#konten" ).html( data );
+            });
+        }
+        function allPost()
+        {
+            $.get( "http://localhost/web-simpel11/index.html", function( data ) {
+                $( "#konten" ).html( data );
+            });
+        }
+        function allKategori()
+        {
+            $.get( "http://localhost/web-simpel11/index1.html", function( data ) {
+                $( "#konten" ).html( data );
+            });
+        }
+
+        
+    </script>
+</body>
+</html>
