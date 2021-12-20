@@ -42,7 +42,7 @@
 
         var input = document.getElementById('inputKey')
         // console.log(input.value)
-        var link = 'http://localhost/web-simpel11/cari.php?key=' + input.value;
+        var link = 'http://localhost/cari.php?key=' + input.value;
         $.getJSON(link, function(data) {
             // var data1 = JSON.parse(data)
             var text = '';
@@ -51,7 +51,7 @@
                 <img class="card-img-top" style="margin: 0 auto;
                 overflow: hidden;
                 position: relative;
-                height: 200px; object-fit: cover; " src="http://localhost/web-simpel11/images/`; text+= element.gambar +`"  alt="Card image cap">
+                height: 200px; object-fit: cover; " src="http://localhost/images/`; text+= element.gambar +`"  alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title text-capitalize">`; text+= element.judul +`</h5>
                   <p class="card-text text">`; text+= element.deskripsi +`</p>
@@ -68,22 +68,22 @@
 
     function tampil(id){
 
-var link = 'http://localhost/web-simpel11/detail.php?key=' + id;
-$.getJSON(link, function(data) {
-    // var data1 = JSON.parse(data)
-    var text = '';
-    $.each(data, function(index, element) {		
-        text += `<h1 class="text-center my-2 py-3 border rounded" style="background-color: #316879; color: white;">My Blog</h1><h2 class="text-capitalize">`; text+= element.judul +`</h2>
-<img src="http://localhost/web-simpel11/images/`; text+= element.gambar +`" alt="" width="100%">
-<p>Kategori : `; text+= element.kategori +`</p>
-<p>`; text+= element.deskripsi +`</p>`;
-        
-    });
+      var link = 'http://localhost/detail.php?key=' + id;
+      $.getJSON(link, function(data) {
+          // var data1 = JSON.parse(data)
+          var text = '';
+          $.each(data, function(index, element) {		
+              text += `<h1 class="text-center my-2 py-3 border rounded" style="background-color: #316879; color: white;">My Blog</h1><h2 class="text-capitalize">`; text+= element.judul +`</h2>
+              <img src="http://localhost/images/`; text+= element.gambar +`" alt="" width="100%">
+              <p>Kategori : `; text+= element.kategori +`</p>
+              <p>`; text+= element.deskripsi +`</p>`;
+              
+          });
 
 
-    $("#content-home").html(text);
-});
-}
+          $("#content-home").html(text);
+      });
+    }
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

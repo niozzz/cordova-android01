@@ -17,7 +17,7 @@ $dataKategori = query("SELECT kategori FROM postingan");
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>My Blog - Everything You Must Know</title>
     <style>
         .text {
   display: block;
@@ -31,7 +31,7 @@ $dataKategori = query("SELECT kategori FROM postingan");
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">My Blog</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -61,7 +61,7 @@ $dataKategori = query("SELECT kategori FROM postingan");
                     <img class="card-img-top" style="margin: 0 auto;
                     overflow: hidden;
                     position: relative;
-                    height: 200px; object-fit: cover; " src="http://localhost/web-simpel11/images/<?= $d['gambar'] ?>"  alt="Card image cap">
+                    height: 200px; object-fit: cover; " src="images/<?= $d['gambar'] ?>"  alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title text-capitalize"><?= $d['judul'] ?></h5>
                       <p class="card-text text"><?= $d['deskripsi'] ?></p>
