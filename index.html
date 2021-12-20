@@ -34,7 +34,7 @@
 
 
     <script>
-        var link = 'http://localhost/cari.php';
+        var link = 'https://simply.u-nik.my.id/cari.php';
         $.getJSON(link, function(data) {
             // var data1 = JSON.parse(data)
             var text = '';
@@ -43,7 +43,7 @@
                 <img class="card-img-top" style="margin: 0 auto;
                 overflow: hidden;
                 position: relative;
-                height: 200px; object-fit: cover; " src="http://localhost/images/`; text+= element.gambar +`"  alt="Card image cap">
+                height: 200px; object-fit: cover; " src="https://simply.u-nik.my.id/images/`; text+= element.gambar +`"  alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title text-capitalize">`; text+= element.judul +`</h5>
                   <p class="card-text text">`; text+= element.deskripsi +`</p>
@@ -59,13 +59,13 @@
 
         function tampil(id){
 
-            var link = 'http://localhost/detail.php?key=' + id;
+            var link = 'https://simply.u-nik.my.id/detail.php?key=' + id;
             $.getJSON(link, function(data) {
                 // var data1 = JSON.parse(data)
                 var text = '';
                 $.each(data, function(index, element) {		
                     text += `<h2 class="text-capitalize">`; text+= element.judul +`</h2>
-        <img src="http://localhost/images/`; text+= element.gambar +`" alt="" width="100%">
+        <img src="https://simply.u-nik.my.id/images/`; text+= element.gambar +`" alt="" width="100%">
         <p>Kategori : `; text+= element.kategori +`</p>
         <p>`; text+= element.deskripsi +`</p>`;
                     
